@@ -1,7 +1,8 @@
 # Manateeworks Barcode Scanner using the Ionic 2 Framework
 
 ## Description
-This is a starter app for the Manatee Works Barcode Scanner and the Ionic 2 frameworks. It uses Cordova to provide access to the native libraries that are used by the Barcode Scanner. The Scanner is provided as a Cordova Plugin
+This is a starter app for the Manatee Works Barcode Scanner and the Ionic 2 frameworks. It uses Cordova to provide access to the native libraries that are used by the Barcode Scanner. The Scanner is provided as a Cordova Plugin.
+
 
 
 ## Dependencies
@@ -66,7 +67,7 @@ This starter is using [Manateeworks Barcode Scanner Phonegap Plugin](https://git
 
 ## App Structure
 
-The app will build an Ionic 2 Structured project. Ionic 2 utilizes typescript, so things may be a little different than what a "normal" javascript developer is used to, so familiarity with Ionic 2 is required to run this app
+The app will build as an Ionic 2 Structured project. Ionic 2 utilizes typescript, so things may be a little different than what a "normal" javaScript developer is used to. Familiarity with Ionic 2 is required to run this app.
 
 ## License
 

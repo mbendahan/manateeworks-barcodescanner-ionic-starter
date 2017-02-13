@@ -1,0 +1,25 @@
+<ion-header>
+<ion-navbar>
+  <ion-buttons start>
+    <button (click)="dismiss()" ion-button>
+      Cancel
+    </button>
+  </ion-buttons>
+  <ion-title>Sample Modal</ion-title>
+</ion-navbar>
+</ion-header>
+<ion-content padding class="sample-modal-page">
+	<ion-list no-lines>
+	    <form [formGroup]="editListName">
+	        <ion-item>
+	            <ion-label floating>List Name</ion-label>
+	            <ion-input formControlName="listName" type="text" [class.invalid]="!editListName.controls.listName.valid"></ion-input>
+	        </ion-item>
+
+            <ion-item *ngIf="!editListName.controls.listName.valid && !editListName.controls.listName.pending && (editListName.controls.listName.dirty)">
+                <p>Sorry, that Name can not be used!</p>
+            </ion-item>	        
+	    </form>
+	 </ion-list>
+	<button ion-button full color="primary" (click)="save()"> Save </button>
+</ion-content>

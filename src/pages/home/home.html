@@ -1,22 +1,27 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Manateeworks Scanner Example
+      MWB Scanner 
     </ion-title>
+
   </ion-navbar>
 </ion-header>
-
 <ion-content padding>
-	
-	<ion-item>
-		<ion-input placeholder="Barcode type" type="text" [(ngModel)]="barcodetype"></ion-input>
-	</ion-item>    
-	<ion-item>
-		<ion-input placeholder="Barcode Result" type="text" [(ngModel)]="barcoderesult"></ion-input>
-	</ion-item>  
-	<ion-item>
-	<button ion-button (click)="startScanner($event)">
-		Start Scanner
-	</button>
-	</ion-item>
+  <ion-list> 
+	  <ion-item-sliding *ngFor="let item of lists; let i = index">
+	    <ion-item (click)="navSomewhere(i)"> {{item.name}} </ion-item>
+	    <ion-item-options>
+	      <button icon-only color="danger" (click)="removeItem(i)"><ion-icon name="trash"></ion-icon></button>
+	    </ion-item-options>
+	  </ion-item-sliding>
+  </ion-list>
+
+
+
+<ion-fab bottom right>
+	<button ion-fab (click)="showNewListModal()">
+		<ion-icon name="add"></ion-icon></button> 
+</ion-fab>		  
+
 </ion-content>
+

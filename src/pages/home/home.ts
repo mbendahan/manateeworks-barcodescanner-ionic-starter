@@ -1,45 +1,44 @@
 import { Component, NgZone } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
+import { HistoryListPage } from '../history-list/history-list';
+import { ListsFactory} from '../../providers/lists-factory';
+import { ListModify} from './listmodify';
 
 
-declare var mwbScanner:any;
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-  barcodetype = '';
-  barcoderesult = '';
-
-  constructor(public navCtrl: NavController,private zone: NgZone) {
-    
-  }
-
-  startScanner(event){
-  	var me = this;
-	mwbScanner.setCallback(function(result){
-	  //disable the default callback. Our plugin uses a default callback to show the results from the scan. We also return a promise
-	  //since ionic2 works more naturally with promises, we will use the promise approach. But we still need to disable the default callback function which
-	  //uses alert() to show results
-	});
-
-
-		mwbScanner.startScanning().then(function(response){
-		  if(response && response.code){
-		    me.zone.run(() => {
-		        me.barcodetype = response.type;
-		        me.barcoderesult = response.code;        	
-		    });
-		  }
-		  else{
-		    me.zone.run(() => {
-		        me.barcodetype = response.type;  // will return Cancel
-		        me.barcoderesult = '';
-		    });		      	
-		  }
+	constructor(public navCtrl: NavController,public modalCtrl: ModalController, private zone: NgZone, private listsFactory:ListsFactory) {
+		this.listsFactory.getAll().then(lists=>{
+			this.lists = lists;
 		});
-  	
-  }
+	}
+	historyListPage = HistoryListPage;
+	lists:any;
 
+	navSomewhere(id){
+		this.navCtrl.push(HistoryListPage,{
+			listId : id
+		});
+	}
+
+	showNewListModal(){
+		let newListModal = this.modalCtrl.create(ListModify,{});
+		newListModal.present();
+		newListModal.onDidDismiss(data => {
+			if(data)
+				this.lists = data.lists;
+		})
+	}
+
+	removeItem(id){
+		console.log(id);
+		this.listsFactory.removeItem(id).then(result=>{
+			this.lists = result;
+		})
+	}
 }
