@@ -38,7 +38,8 @@
       "version": "",
       "locator": "ios"
     },
-    "android"
+    "android",
+    "windows"
   ],  
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
