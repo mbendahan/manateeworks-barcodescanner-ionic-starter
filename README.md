@@ -36,7 +36,13 @@ When installation finishes, you need to put your credentials, the MW_LICENSE_KEY
 After that, you need to restore the state of the project. To do this, please run:
 
 ```ssh
-$ ionic state restore
+npm run ionic:build
+```
+to build it first (looks like it's very much needed on latest version of ionic)
+
+
+```ssh
+$ ionic state reset
 ```
 When ionic state is restored, you can build for your desired platform:
 
