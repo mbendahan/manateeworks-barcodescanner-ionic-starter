@@ -1,0 +1,14 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>viewCode</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+  <ion-list> 
+	  <ion-item-sliding *ngFor="let key of arrayOfKeys"> 
+	    <ion-item> {{key}} : {{item[key] | json}}  </ion-item>
+	  </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

@@ -17,9 +17,9 @@
 	        </ion-item>
 
             <ion-item *ngIf="!editListName.controls.listName.valid && !editListName.controls.listName.pending && (editListName.controls.listName.dirty)">
-                <p>Sorry, that Name can not be used!</p>
+                <p>Sorry, that name can not be used!</p>
             </ion-item>	        
+			<button ion-button full color="primary" (click)="save()"> Save </button>
 	    </form>
 	 </ion-list>
-	<button ion-button full color="primary" (click)="save()"> Save </button>
 </ion-content>

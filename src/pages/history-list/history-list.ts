@@ -1,6 +1,7 @@
 import { Component, NgZone } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ListsFactory} from '../../providers/lists-factory';
+import { ViewCodePage} from '../view-code/view-code';
 
 declare var mwbScanner:any;
 
@@ -39,14 +40,17 @@ export class HistoryListPage {
 
 	}
 	viewData(item){
-		console.log(item);
-		console.log('TODO: code this one');
-
-		alert(item);
-
+		this.navCtrl.push(ViewCodePage,{
+			item : item
+		});		
 	}
-	removeItem(){
-		console.log('TODO: code this one');
+	removeItem(item_id){
+
+		this.list_data.splice(item_id,1);
+		this.list.data = this.list_data;
+		this.listsFactory.setItem(this.id,this.list).then(response=>{
+			console.log('saved the list');
+		});
 	}
 	startScanner(event){
 

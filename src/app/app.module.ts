@@ -5,13 +5,15 @@ import { HomePage } from '../pages/home/home';
 import { ListModify } from '../pages/home/listmodify';
 import { HistoryListPage } from '../pages/history-list/history-list';
 import { ListsFactory} from '../providers/lists-factory';
+import { ViewCodePage} from '../pages/view-code/view-code';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     HistoryListPage,
-    ListModify
+    ListModify,
+    ViewCodePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -21,7 +23,8 @@ import { ListsFactory} from '../providers/lists-factory';
     MyApp,
     HomePage,
     HistoryListPage,
-    ListModify    
+    ListModify,
+    ViewCodePage
   ],
   providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ListsFactory]
 })

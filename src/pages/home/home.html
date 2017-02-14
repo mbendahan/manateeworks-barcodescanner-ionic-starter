@@ -8,14 +8,14 @@
 </ion-header>
 <ion-content padding>
   <ion-list> 
-	  <ion-item-sliding *ngFor="let item of lists; let i = index">
+	  <ion-item-sliding *ngFor="let item of lists; let i = index" #slidingList>
 	    <ion-item (click)="navSomewhere(i)"> {{item.name}} </ion-item>
 	    <ion-item-options>
-	      <button icon-only color="danger" (click)="removeItem(i)"><ion-icon name="trash"></ion-icon></button>
+	      <button icon-only color="danger" (click)="removeItem(i)" side="right"><ion-icon name="trash"></ion-icon></button>
+	      <button icon-only color="danger" (click)="editListModal(i,item,slidingList)"><ion-icon name="create"></ion-icon></button>
 	    </ion-item-options>
 	  </ion-item-sliding>
   </ion-list>
-
 
 
 <ion-fab bottom right>

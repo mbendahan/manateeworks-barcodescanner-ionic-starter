@@ -1,5 +1,5 @@
 import { Component, NgZone } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, ItemSliding } from 'ionic-angular';
 import { HistoryListPage } from '../history-list/history-list';
 import { ListsFactory} from '../../providers/lists-factory';
 import { ListModify} from './listmodify';
@@ -33,6 +33,17 @@ export class HomePage {
 			if(data)
 				this.lists = data.lists;
 		})
+	}
+	editListModal(id,list,slidingList : ItemSliding){
+		let editListModal = this.modalCtrl.create(ListModify,{id:id,list:list});
+		editListModal.present();
+		editListModal.onDidDismiss(data => {
+			if(data)
+				this.lists = data.lists;
+
+			slidingList.close();
+		})
+
 	}
 
 	removeItem(id){
