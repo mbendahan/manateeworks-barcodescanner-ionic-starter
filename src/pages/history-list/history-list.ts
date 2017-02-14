@@ -61,23 +61,29 @@ export class HistoryListPage {
 			  //uses alert() to show results
 			});
 
-			this.scannerActive = "power";
-			mwbScanner.startScanning(0,0,100,50).then(response =>{
-			  if(response && response.code){
-			    this.zone.run(() => {
-			    	this.list_data.push(response);
-			    	this.list.data = this.list_data;
-			    	this.scannerActive = "barcode";
-			    	this.listsFactory.setItem(this.id,this.list).then(response=>{})
-	       	
-			    });
-			  }
-			  else{
-			    this.zone.run(() => {
-			    	this.scannerActive = "barcode";
-			    });		      	
-			  }
-			});		
+			if (this.scannerActive =="barcode"){
+				this.scannerActive = "power";
+				mwbScanner.startScanning(0,0,100,50).then(response =>{
+				  if(response && response.code){
+				    this.zone.run(() => {
+				    	this.list_data.push(response);
+				    	this.list.data = this.list_data;
+				    	this.scannerActive = "barcode";
+				    	this.listsFactory.setItem(this.id,this.list).then(response=>{})
+		       	
+				    });
+				  }
+				  else{
+				    this.zone.run(() => {
+				    	this.scannerActive = "barcode";
+				    });		      	
+				  }
+				});
+			}
+			else{
+				mwbScanner.closeScanner();
+				this.scannerActive = "barcode";
+			}
 			
 		}
 		else{
