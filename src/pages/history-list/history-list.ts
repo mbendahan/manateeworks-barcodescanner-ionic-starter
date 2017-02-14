@@ -75,7 +75,6 @@ export class HistoryListPage {
 			  else{
 			    this.zone.run(() => {
 			    	this.scannerActive = "barcode";
-
 			    });		      	
 			  }
 			});		
@@ -90,7 +89,7 @@ export class HistoryListPage {
 		let timestamp = function(){ return Number(new Date); }
 		this.scannerActive = "power";
 		let response:any = {
-			"code":"Dummy BarcodeScan @ " + timestamp(),
+			"code":"mwbScanner not available @ " + timestamp(),
 			"location" : {},
 			"type" : "dummy"
 		};
