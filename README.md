@@ -51,6 +51,7 @@ When ionic state is restored, you can build for your desired platform:
 ```ssh
 $ ionic build ios
 $ ionic run ios
+$ ionic run ios -l //will start the app in live reload mode
 ```
 
 #### Android
@@ -63,9 +64,12 @@ $ ionic build android
 
 Note: when building for ios, it could complain that it doesn't have a signing profile, easily fixed within xcode. 
 
-## Screenshots
+## Explanation of the solution
 
-TODO ADD SCREENSHOTS
+The main difference from the usual ionic starter project is the provider that we create for manatee scanner (see /src/providers/manatee-scanner). 
+mwbScanner is a variable which lives in the global namespace and is provided by the cordova plugin.  
+We could use that variable directly in the controllers, but we want to use it as a provider and configure it in one central place, so we wrap that variable in a provider, and create methods for easy setting and configuration of the scanner. 
+Then we use the platform ready event to configure the scanner (see /src/app/app.components.ts) 
 
 ## Observations
 
