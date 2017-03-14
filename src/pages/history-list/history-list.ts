@@ -1,16 +1,9 @@
 import { Component, NgZone } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ListsFactory} from '../../providers/lists-factory';
+import { ManateeScanner} from '../../providers/manatee-scanner';
 import { ViewCodePage} from '../view-code/view-code';
 
-declare var mwbScanner:any;
-
-/*
-  Generated class for the HistoryList page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
 @Component({
   selector: 'page-history-list',
   templateUrl: 'history-list.html'
@@ -22,7 +15,7 @@ export class HistoryListPage {
 	list_data:any[];
 	scannerActive:string ="barcode";	
 
-	constructor(public navCtrl: NavController, public navParams: NavParams, private listsFactory : ListsFactory, private zone: NgZone) {}
+	constructor(public navCtrl: NavController, public navParams: NavParams, private listsFactory : ListsFactory, private zone: NgZone,private manateeScanner : ManateeScanner) {}
 
 	ionViewDidLoad() {
 
@@ -37,7 +30,6 @@ export class HistoryListPage {
 			else
 				this.list_data = [];
 		});
-
 	}
 	viewData(item){
 		this.navCtrl.push(ViewCodePage,{
@@ -54,16 +46,10 @@ export class HistoryListPage {
 	}
 	startScanner(event){
 
-		if(typeof mwbScanner != 'undefined' && typeof mwbScanner.startScanning != 'undefined'){
-			mwbScanner.setCallback(function(result){
-			  //disable the default callback. Our plugin uses a default callback to show the results from the scan. We also return a promise
-			  //since ionic2 works more naturally with promises, we will use the promise approach. But we still need to disable the default callback function which
-			  //uses alert() to show results
-			});
-
+		if(typeof this.manateeScanner.scanner != 'undefined' && typeof this.manateeScanner.scanner.startScanning != 'undefined'){
 			if (this.scannerActive =="barcode"){
 				this.scannerActive = "power";
-				mwbScanner.startScanning(0,0,100,50).then(response =>{
+				this.manateeScanner.scanner.startScanning(0,0,100,50).then(response =>{
 				  if(response && response.code){
 				    this.zone.run(() => {
 				    	this.list_data.push(response);
@@ -81,7 +67,7 @@ export class HistoryListPage {
 				});
 			}
 			else{
-				mwbScanner.closeScanner();
+				this.manateeScanner.scanner.closeScanner();
 				this.scannerActive = "barcode";
 			}
 			

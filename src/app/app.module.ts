@@ -5,6 +5,7 @@ import { HomePage } from '../pages/home/home';
 import { ListModify } from '../pages/home/listmodify';
 import { HistoryListPage } from '../pages/history-list/history-list';
 import { ListsFactory} from '../providers/lists-factory';
+import { ManateeScanner} from '../providers/manatee-scanner';
 import { ViewCodePage} from '../pages/view-code/view-code';
 
 @NgModule({
@@ -26,6 +27,6 @@ import { ViewCodePage} from '../pages/view-code/view-code';
     ListModify,
     ViewCodePage
   ],
-  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ListsFactory]
+  providers: [{provide: ErrorHandler, useClass: IonicErrorHandler},ListsFactory,ManateeScanner]
 })
 export class AppModule {}

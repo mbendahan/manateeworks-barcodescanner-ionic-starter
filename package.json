@@ -50,11 +50,8 @@
     "ionic-plugin-keyboard",
     {
       "locator": "https://github.com/manateeworks/phonegap-manateeworks-v3.git",
-      "id": "manateeworks-barcodescanner-v3",
-      "variables": {
-        "MW_LICENSE_KEY": "ADD-YOUR-KEY-HERE"
-      }
+      "id": "manateeworks-barcodescanner-v3"
     }     
   ],
-  "description": "mwbs-Ionic: An Ionic project with mwbscanner"
+  "description": "mwbs-Ionic: An Ionic project with Manatee Works Scanner"
 }
