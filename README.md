@@ -31,8 +31,6 @@ and then install the dependencies
 npm install
 ```
 
-When installation finishes, you need to put your credentials, the MW_LICENSE_KEY generated on [MWDN](https://manateeworks.com/lpr?type=evaluation) inside the `package.json` file.
-
 After that, you need to restore the state of the project. To do this, please run:
 
 ```ssh
@@ -72,6 +70,8 @@ We could use that variable directly in the controllers, but we want to use it as
 Then we use the platform ready event to configure the scanner (see /src/app/app.components.ts) 
 
 ## Observations
+
+To use our product you need a license, you can get an evaluation license here: [MWDN](https://manateeworks.com/lpr?type=evaluation)
 
 This starter is using [Manateeworks Barcode Scanner Phonegap Plugin](https://github.com/manateeworks/phonegap-manateeworks-v3.git)
 
