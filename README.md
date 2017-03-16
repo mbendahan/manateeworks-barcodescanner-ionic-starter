@@ -12,7 +12,7 @@ This is a starter app for the Manatee Works Barcode Scanner and the Ionic 2 fram
 - node
 - git
 - npm
-- \**Android** and/or iOS environment installed (optional, but required if you don't have devices to test)
+- **Android** and/or **iOS** environment installed (optional, but required if you don't have devices to test)
 
 
 ## Installation
