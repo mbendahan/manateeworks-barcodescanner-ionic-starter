@@ -16,18 +16,19 @@ export class ManateeScanner {
   mwInit : boolean;
   public scanner : any;
 
-  constructor(public http: Http) {
-    console.log('Hello ManateeScanner Provider');
+  constructor(public http: Http) {}
+
+  config(setFunc){
+
     if(typeof mwbScanner != 'undefined' && typeof mwbScanner.startScanning != 'undefined'){
-    	this.scanner = mwbScanner;
+      console.log("mwbScanner initialized");
+      this.scanner = mwbScanner;
     }
     else{
-    	this.scanner = {};
-    }
-  }
-  config(setFunc){
+      this.scanner = {};
+    }    
+
   	setFunc.call();
-  	console.log('setting the function');
   	this.mwInit = true;
 
   }

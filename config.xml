@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.phonegap.ios" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="com.manateeworks.test" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
   <name>mwbs-Ionic</name>
   <description>An awesome Ionic/Cordova app with MWBScanner.</description>
   <author email="vladl@manateeworks.com" href="https://manateeworks.com/">Manateeworks Cross Platforms Team</author>
   <content src="index.html"/>
   <access origin="*"/>
   <allow-navigation href="http://ionic.local/*"/>
-  <allow-navigation href="http://192.168.100.9:8100"/>
+  <allow-navigation href="http://localhost*"/>
   <allow-intent href="http://*/*"/>
   <allow-intent href="https://*/*"/>
   <allow-intent href="tel:*"/>

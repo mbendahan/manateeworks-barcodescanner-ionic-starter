@@ -41,7 +41,7 @@ export class HistoryListPage {
 		this.list_data.splice(item_id,1);
 		this.list.data = this.list_data;
 		this.listsFactory.setItem(this.id,this.list).then(response=>{
-			console.log('saved the list');
+			
 		});
 	}
 	startScanner(event){

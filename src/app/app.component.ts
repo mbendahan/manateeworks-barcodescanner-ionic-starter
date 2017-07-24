@@ -20,19 +20,19 @@ export class MyApp {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
-
       manateeScanner.config(()=>{
+
           manateeScanner.scanner.setCallback((result:any) =>{});
-          var mw_c : any =  manateeScanner.scanner.getConstants();
+          var mw_c:any =  manateeScanner.scanner.getConstants();
           var settings : any = [
-                  // {"method" : 'MWBenableZoom', "value" : [true]},
-                  // {"method" : 'MWBsetZoomLevels', "value" : [200, 400, 1]},
-                  // {"method" : 'MWBsetInterfaceOrientation', "value" : [mw_c.OrientationLandscapeLeft]},
+                  {"method" : 'MWBenableZoom', "value" : [true]}
+                  ,{"method" : 'MWBsetZoomLevels', "value" : [200, 400, 1]}
+                  ,{"method" : 'MWBsetInterfaceOrientation', "value" : [mw_c.OrientationLandscapeLeft]}
                   // {"method" : 'MWBsetOverlayMode', "value" : [mw_c.OverlayModeImage]}
               ];
           var keys : any = {
               'Android'   : "VALID_ANDROID_KEY",
-              'iOS'       : "VALID_IOS_KEY",
+              'iOS'       : "VALID IOS KEY",
               'Win32NT'   : "VALID_WIN_WP8_KEY",
               'windows'   : "VALID_WIN_10_UWP_KEY"
           };
@@ -40,7 +40,7 @@ export class MyApp {
 
           return manateeScanner.scanner.setKey(key).then((response:any)=>{
               return manateeScanner.scanner.loadSettings(settings).then((response:any)=>{}).catch((reason:any)=>{
-                              console.log(reason)
+                              console.log(reason);
                           });
           });
         });      
