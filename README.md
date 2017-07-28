@@ -40,9 +40,9 @@ to build it first (looks like it's very much needed on latest version of ionic)
 
 
 ```ssh
-$ ionic state reset
+$ ionic state restore
 ```
-When ionic state is restored, you can build for your desired platform:
+When ionic state is restored (this should add all the required plugins, especially the mw scanner), you can build for your desired platform:
 
 #### iOS
 
