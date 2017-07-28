@@ -38,13 +38,17 @@ After that, you need to restore the state of the project. To do this, please run
 ```ssh
 npm run ionic:build
 ```
-to build it first (looks like it's very much needed on latest version of ionic)
-
+Add your platform:
 
 ```ssh
-$ ionic state restore
+$ ionic cordova platform add ios
 ```
-When ionic state is restored (this should add all the required plugins, especially the mw scanner), you can build for your desired platform:
+
+Add your barcodescanner plugin:
+
+```ssh
+$ ionic cordova plugin add manateeworks-barcodescanner-v3
+```
 
 #### iOS
 
