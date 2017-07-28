@@ -29,6 +29,9 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "1.0.0",
+    "@ionic/cli-plugin-cordova": "1.5.0",
+    "@ionic/cli-plugin-ionic-angular": "1.4.0",
+    "ionic": "3.6.0",
     "typescript": "2.0.9"
   },
   "cordovaPlatforms": [
@@ -40,7 +43,7 @@
     },
     "android",
     "windows"
-  ],  
+  ],
   "cordovaPlugins": [
     "cordova-plugin-whitelist",
     "cordova-plugin-console",
@@ -51,7 +54,7 @@
     {
       "locator": "https://github.com/manateeworks/phonegap-manateeworks-v3.git",
       "id": "manateeworks-barcodescanner-v3"
-    }     
+    }
   ],
   "description": "mwbs-Ionic: An Ionic project with Manatee Works Scanner"
 }
