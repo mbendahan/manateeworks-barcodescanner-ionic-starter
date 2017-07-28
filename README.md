@@ -3,8 +3,8 @@
 ***NOTE : This document is valid for verison 3.6.0 of the IONIC framework*** 
 
 ## Description
-This is a starter app for the Manatee Works Barcode Scanner SDK and the Ionic 2 frameworks. It uses Cordova to provide access to the native libraries that are used by the Barcode Scanner. The Scanner is provided as a Cordova Plugin.
-
+This is a starter app for the Manatee Works Barcode Scanner SDK and the Ionic frameworks. 
+It uses Cordova to provide access to the native libraries that are used by the Barcode Scanner. The Scanner is provided as a Cordova Plugin.
 
 
 ## Dependencies
