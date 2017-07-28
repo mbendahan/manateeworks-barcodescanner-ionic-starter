@@ -33,40 +33,24 @@ and then install the dependencies
 npm install
 ```
 
-After that, you need to restore the state of the project. To do this, please run:
+After that, you just need to make a build for a specific platform
 
 ```ssh
-npm run ionic:build
+ionic cordova build ios
 ```
-Add your platform:
+
+Start the app
 
 ```ssh
-$ ionic cordova platform add ios
+ionic run ios
+ionic run ios -l //will start the app in live reload mode
 ```
 
-Add your barcodescanner plugin:
+Or open the generated solution with `Android Studio` / `Xcode` / `Visual Studio` respectively as you would with a `Cordova` / `Phonegap` generated solution.
 
-```ssh
-$ ionic cordova plugin add manateeworks-barcodescanner-v3
-```
+Note: when building for ios, it could complain that it doesn't have a signing profile, easily fixed within Xcode.
 
-#### iOS
-
-```ssh
-$ ionic build ios
-$ ionic run ios
-$ ionic run ios -l //will start the app in live reload mode
-```
-
-#### Android
-
-Just run the following command to open the project inside a device connected:
-
-```ssh
-$ ionic build android
-```
-
-Note: when building for ios, it could complain that it doesn't have a signing profile, easily fixed within xcode. 
+Note: when building for windows, it might complain for invalid CPU type (AnyCPU is the default), which you can easily pick within Visual Studio (or use cli flags, such as `-archs="arm"` for using ARM).
 
 ## Explanation of the solution
 
@@ -80,10 +64,6 @@ Then we use the platform ready event to configure the scanner (see /src/app/app.
 To use our product you need a license, you can get an evaluation license here: [MWDN](https://manateeworks.com/lpr?type=evaluation)
 
 This starter is using [Manatee Works Barcode Scanner SDK Phonegap Plugin](https://github.com/manateeworks/phonegap-manateeworks-v3.git)
-
-## App Structure
-
-The app will build as an Ionic 2 Structured project. Ionic 2 utilizes typescript, so things may be a little different than what a "normal" JavaScript developer is used to. Familiarity with Ionic 2 is required to run this app.
 
 ## License
 
